@@ -1,25 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Westwood Cafe</title>
+    <title>Westwood Cafe - Good Food, Good Mood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to extend Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFCF8; /* Main light cream background from original site */
+            color: #3C4D2C; /* Main dark green text color from original site */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .text-brand-green {
+            color: #3C4D2C;
+        }
+        .bg-brand-green {
+            background-color: #3C4D2C;
+        }
+        .border-brand-green {
+            border-color: #3C4D2C;
+        }
+        .bg-brand-cream {
+            background-color: #FDFCF8;
+        }
+        .bg-brand-accent {
+            background-color: #F5F1E9; /* A slightly darker cream for accents */
+        }
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1511920183353-3Fb2a5ba3542?q=80&w=2748&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Westwood Cafe</h1>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-cream/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold tracking-wider text-brand-green font-serif">Westwood</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-brand-green hover:text-opacity-80 transition duration-300">Home</a>
+                    <a href="#" class="text-brand-green hover:text-opacity-80 transition duration-300">About</a>
+                    <a href="#" class="text-brand-green hover:text-opacity-80 transition duration-300">Menu</a>
+                    <a href="#" class="text-brand-green hover:text-opacity-80 transition duration-300">Private Events</a>
+                    <a href="#" class="text-brand-green hover:text-opacity-80 transition duration-300">Contact</a>
+                </nav>
+                <div class="flex items-center">
+                     <a href="#" class="hidden md:inline-block bg-brand-green text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition duration-300 text-sm font-medium">Order Online</a>
+                     <button id="mobile-menu-button" class="md:hidden ml-4">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block px-6 py-3 text-brand-green hover:bg-brand-accent">Home</a>
+            <a href="#" class="block px-6 py-3 text-brand-green hover:bg-brand-accent">About</a>
+            <a href="#" class="block px-6 py-3 text-brand-green hover:bg-brand-accent">Menu</a>
+            <a href="#" class="block px-6 py-3 text-brand-green hover:bg-brand-accent">Private Events</a>
+            <a href="#" class="block px-6 py-3 text-brand-green hover:bg-brand-accent">Contact</a>
+            <a href="#" class="block px-6 py-4 bg-brand-green text-white text-center font-medium">Order Online</a>
+        </div>
     </header>
+
+    <!-- Hero Section -->
     <main>
-        <p>Discover the finest coffee and delicious treats in the heart of Westwood.</p>
-        <h2>Our Menu</h2>
-        <ul>
-            <li>Specialty Coffee</li>
-            <li>Fresh Pastries</li>
-            <li>Light Meals</li>
-        </ul>
+        <section class="hero-section h-[90vh] min-h-[600px] flex items-center relative text-white">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">Artisanal Coffee & California Cuisine</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-stone-200">A neighborhood cafe in the heart of Westwood, where every cup and plate is crafted with passion.</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="bg-white text-brand-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-stone-200 transition duration-300">View Our Menu</a>
+                    <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white/10 transition duration-300">Private Events</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-4">A Space to Unwind & Connect</h2>
+                        <p class="text-lg text-brand-green/80 mb-6 leading-relaxed">
+                            Founded on the simple principle of "Good Food, Good Mood," Westwood Cafe is more than just a place to eat and drink. It's a community hub designed for comfort, conversation, and connection. Our mission is to provide an inviting atmosphere paired with exceptional quality.
+                        </p>
+                        <a href="#" class="inline-block font-semibold text-brand-green border-b-2 border-brand-green pb-1 hover:opacity-75 transition-opacity duration-300">
+                            Learn Our Story
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2940&auto=format&fit=crop" alt="Cozy interior of Westwood Cafe" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Highlights Section -->
+        <section class="bg-brand-accent py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-4">Crafted With Care</h2>
+                    <p class="text-lg text-brand-green/80">From our signature espresso blends to freshly baked pastries and seasonal dishes, every item is prepared with the finest local ingredients.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-brand-cream rounded-lg shadow-lg overflow-hidden group">
+                        <div class="h-64 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1572442388855-4341e71d9be2?q=80&w=2787&auto=format&fit=crop" alt="Artisanal Latte Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Signature Lattes</h3>
+                            <p class="text-brand-green/80">Expertly pulled espresso with perfectly steamed milk, available with house-made syrups.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-brand-cream rounded-lg shadow-lg overflow-hidden group">
+                         <div class="h-64 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=2940&auto=format&fit=crop" alt="Avocado Toast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Avocado Toast</h3>
+                            <p class="text-brand-green/80">Sourdough toast topped with fresh avocado, microgreens, and a hint of chili flakes.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-brand-cream rounded-lg shadow-lg overflow-hidden group">
+                        <div class="h-64 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1587241321921-91a38097a81d?q=80&w=2787&auto=format&fit=crop" alt="Freshly baked croissants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Fresh Pastries</h3>
+                            <p class="text-brand-green/80">Baked daily in-house, from flaky croissants to decadent cakes and scones.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="#" class="bg-brand-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition duration-300">Explore The Full Menu</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Visit Us Section -->
+        <section class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-6">Come Say Hello</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Location</h3>
+                                <p class="text-lg text-brand-green/80">123 Cafe Lane, Westwood Village<br>Los Angeles, CA 90024</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Hours</h3>
+                                <p class="text-lg text-brand-green/80">Monday - Friday: 7am - 6pm</p>
+                                <p class="text-lg text-brand-green/80">Saturday - Sunday: 8am - 5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-80 md:h-96 bg-stone-200 rounded-lg shadow-xl flex items-center justify-center">
+                        <!-- Placeholder for Google Maps embed -->
+                        <p class="text-brand-green/70">Map Placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer>
-        <p>&copy; 2025 Westwood Cafe. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer class="bg-brand-accent border-t border-stone-200">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                     <a href="#" class="text-2xl font-bold tracking-wider text-brand-green font-serif mb-4 inline-block">Westwood</a>
+                     <p class="text-brand-green/70">Good Food, Good Mood.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-brand-green/80 hover:text-brand-green">About</a></li>
+                        <li><a href="#" class="text-brand-green/80 hover:text-brand-green">Menu</a></li>
+                        <li><a href="#" class="text-brand-green/80 hover:text-brand-green">Careers</a></li>
+                        <li><a href="#" class="text-brand-green/80 hover:text-brand-green">Contact</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-brand-green/80 hover:text-brand-green">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                         <a href="#" class="text-brand-green/80 hover:text-brand-green">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                        </a>
+                         <a href="#" class="text-brand-green/80 hover:text-brand-green">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zm-1.163 1.943h.001c.03.001.06.001.092.001.217 0 .363-.001.446-.001.082 0 .142.001.22.001h.001c2.175 0 2.417.01 3.339.057.913.047 1.448.203 1.846.372a2.904 2.904 0 011.06 1.06c.17.398.326.933.372 1.846.046.922.057 1.164.057 3.339s-.01 2.417-.057 3.339c-.046.913-.202 1.448-.372 1.846a2.904 2.904 0 01-1.06 1.06c-.398.17-.933.326-1.846.372-.922.046-1.164.057-3.339.057s-2.417-.01-3.339-.057c-.913-.047-1.448-.203-1.846-.372a2.904 2.904 0 01-1.06-1.06c-.17-.398-.326-.933-.372-1.846-.046-.922-.057-1.164-.057-3.339s.01-2.417.057-3.339c.046-.913.202-1.448.372-1.846a2.904 2.904 0 011.06-1.06c.398-.17.933-.326 1.846-.372.922-.046 1.164-.057 3.339-.057zm-6.262 5.07h.001a4.875 4.875 0 014.875 4.875 4.875 4.875 0 01-4.875 4.875 4.875 4.875 0 01-4.875-4.875 4.875 4.875 0 014.875-4.875zm0 1.943a2.932 2.932 0 00-2.932 2.932 2.932 2.932 0 002.932 2.932 2.932 2.932 0 002.932-2.932 2.932 2.932 0 00-2.932-2.932zm5.733-3.606a1.182 1.182 0 100 2.364 1.182 1.182 0 000-2.364z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-stone-300 text-center text-brand-green/60">
+                <p>&copy; 2024 Westwood Cafe. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Simple script for header shrink on scroll and scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-md', 'py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.remove('shadow-md', 'py-2');
+                    header.classList.add('py-4');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Intersection Observer for fade-in sections
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
